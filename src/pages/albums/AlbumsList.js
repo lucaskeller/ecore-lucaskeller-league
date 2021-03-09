@@ -35,7 +35,7 @@ function AlbumsList() {
             <Album
               key={`album-${index}`}
               album={album}
-              id=''
+              testid={`album-${index}`}
             />
           ))}
         </AlbumListContainer>

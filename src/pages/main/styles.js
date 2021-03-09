@@ -6,5 +6,5 @@ export const MainLayout = styled.div`
 
 export const AppTitle = styled.h1`
   color: #20B2AA;
-  margin: 0;
+  margin: 10px 10px 30px 10px;
 `

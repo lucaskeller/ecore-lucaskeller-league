@@ -9,8 +9,8 @@ describe('AlbumDetails', () => {
     // given
     const promise = Promise.resolve(photos)
     const getAlbumDetail = jest.fn(() => promise)
-    const selectedAlbum = 1
-    const albumDetails = []
+    const selectedAlbum = 3
+    const albumDetails = photos
     const setAlbumDetails = jest.fn()
 
     render(
@@ -31,5 +31,4 @@ describe('AlbumDetails', () => {
     expect(titleElement).toBeInTheDocument()
     await act(() => promise)
   });
-
 })

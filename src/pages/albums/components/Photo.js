@@ -10,8 +10,8 @@ const propTypes = {
 
 function Photo({ photo, setSelectedPhoto, searchText }) {
   return (
-    <PhotoContainer onClick={() => setSelectedPhoto(photo)}  >
-      <img width="150px" height="150px" src={photo.thumbnailUrl} />
+    <PhotoContainer onClick={() => setSelectedPhoto(photo)}>
+      <img width="150px" height="150px" src={photo.thumbnailUrl} alt={photo.title} />
       <PhotoTitle>{searchText.length > 0 ? highlightText({ text: photo.title, highlight: searchText }) : photo.title}</PhotoTitle>
     </PhotoContainer>
   )

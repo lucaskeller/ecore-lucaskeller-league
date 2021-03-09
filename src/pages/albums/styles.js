@@ -2,7 +2,9 @@ import styled from 'styled-components'
 
 //
 // general
-export const PageTitle = styled.h2``
+export const PageTitle = styled.h2`
+  margin: 10px 0 20px 10px;
+`
 
 //
 // AlbumsList
@@ -51,4 +53,11 @@ export const PhotoContainer = styled.div`
 
 export const PhotoTitle = styled.h3`
   color: #20B2AA;
+`
+
+export const SerachInput = styled.input`
+  width: 300px;
+  height: 50px;
+  padding: 10px;
+  margin: 0 0 10px 10px;
 `

@@ -5,7 +5,7 @@ import { AlbumsContext } from './AlbumsContainer'
 import { searchPhoto } from './utils'
 import { useHistory, useParams } from 'react-router-dom'
 import { useEffect, useContext, useState, useCallback } from 'react'
-import { PageTitle, AlbumDetailContainer } from "./styles"
+import { PageTitle, AlbumDetailContainer, SerachInput } from "./styles"
 import Photo from './components/Photo'
 
 function AlbumDetail() {
@@ -50,7 +50,7 @@ function AlbumDetail() {
   return (
     <>
       <PageTitle>Album Detail</PageTitle>
-      <input type="text" value={searchText} onChange={s => setSearchText(s.target.value)} placeholder="Search..." />
+      <SerachInput type="search" value={searchText} onChange={s => setSearchText(s.target.value)} placeholder="Search..." />
       <AlbumDetailContainer>
         {photos && photos.length > 0 && photos.map((photo, index) => (
           <Photo

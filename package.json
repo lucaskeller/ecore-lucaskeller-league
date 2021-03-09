@@ -12,7 +12,6 @@
     "enzyme-adapter-react-16": "^1.15.6",
     "fuse.js": "^6.4.6",
     "lodash": "^4.17.21",
-    "prettier": "^2.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-modal-image": "^2.5.0",
