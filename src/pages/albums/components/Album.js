@@ -1,7 +1,7 @@
 import { useContext } from 'react'
-import { AlbumContainer } from '../styles'
+import { AlbumItem } from '../styles'
 import { selectAlbum } from '../utils'
-import { useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { object, any } from 'prop-types'
 import { AlbumsContext } from '../AlbumsContainer'
 
@@ -15,15 +15,16 @@ function Album({ album, testid }) {
     setSelectedAlbum,
     setAlbumDetails
   } = useContext(AlbumsContext)
-  const history = useHistory()
 
   return (
-    <AlbumContainer
-      onClick={() => selectAlbum({ setSelectedAlbum, setAlbumDetails, albumId: album.id, history })}
+    <AlbumItem
+      onClick={() => selectAlbum({ setSelectedAlbum, setAlbumDetails, albumId: album.id })}
       data-testid={testid}
     >
-      {album.title}
-    </AlbumContainer>
+      <Link to={`albums/${album.id}`} data-testid={`link-${testid}`}>
+        {album.title}
+      </Link>
+    </AlbumItem>
   )
 }
 

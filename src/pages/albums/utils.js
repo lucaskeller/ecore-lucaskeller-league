@@ -6,10 +6,9 @@ export function getAlbumsList({ userId, api }) {
   return api(`users/${userId}/albums`, { method: 'GET' })
 }
 
-export function selectAlbum({ setSelectedAlbum, setAlbumDetails, albumId, history }) {
+export function selectAlbum({ setSelectedAlbum, setAlbumDetails, albumId }) {
   setAlbumDetails(null)
   setSelectedAlbum(albumId)
-  history.push(`albums/${albumId}`)
 }
 
 export function getAlbumDetail({ albumId, api }) {

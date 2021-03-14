@@ -2,7 +2,7 @@ export const photos = [
   {
     "albumId": 3,
     "id": 101,
-    "title": "ecore rulez",
+    "title": "incidunt alias vel enim",
     "url": "https://via.placeholder.com/600/e743b",
     "thumbnailUrl": "https://via.placeholder.com/150/e743b"
   },
@@ -16,7 +16,7 @@ export const photos = [
   {
     "albumId": 3,
     "id": 103,
-    "title": "et eius nisi in ut ecore labore eum",
+    "title": "et eius nisi in ut reprehenderit labore eum",
     "url": "https://via.placeholder.com/600/35cedf",
     "thumbnailUrl": "https://via.placeholder.com/150/35cedf"
   },

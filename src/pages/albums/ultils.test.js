@@ -25,13 +25,11 @@ describe(':: Albums utils', () => {
       const setSelectedAlbum = jest.fn()
       const setAlbumDetails = jest.fn()
       const albumId = 1
-      const history = { push: jest.fn() }
       // when
-      selectAlbum({ setSelectedAlbum, setAlbumDetails, albumId, history })
+      selectAlbum({ setSelectedAlbum, setAlbumDetails, albumId })
       // then
       expect(setSelectedAlbum).toHaveBeenCalledWith(albumId)
       expect(setAlbumDetails).toHaveBeenCalledWith(null)
-      expect(history.push).toHaveBeenCalledWith(`albums/${albumId}`)
     })
   })
 
@@ -50,7 +48,7 @@ describe(':: Albums utils', () => {
   describe('searchPhoto()', () => {
     it('should search inside photos array and return matched photos according the serch text value', async () => {
       // given
-      const value = 'ecore'
+      const value = 'incidunt'
       const photosArray = photos
       const setPhotos = jest.fn()
       // when
@@ -60,16 +58,23 @@ describe(':: Albums utils', () => {
         {
           "albumId": 3,
           "id": 101,
-          "title": "ecore rulez",
+          "title": "incidunt alias vel enim",
           "url": "https://via.placeholder.com/600/e743b",
           "thumbnailUrl": "https://via.placeholder.com/150/e743b"
         },
         {
           "albumId": 3,
-          "id": 103,
-          "title": "et eius nisi in ut ecore labore eum",
-          "url": "https://via.placeholder.com/600/35cedf",
-          "thumbnailUrl": "https://via.placeholder.com/150/35cedf"
+          "id": 108,
+          "title": "qui tempora vel exercitationem harum iusto voluptas incidunt",
+          "url": "https://via.placeholder.com/600/627495",
+          "thumbnailUrl": "https://via.placeholder.com/150/627495"
+        },
+        {
+          "albumId": 3,
+          "id": 145,
+          "title": "eius unde ipsa incidunt corrupti quia accusamus omnis",
+          "url": "https://via.placeholder.com/600/f3472e",
+          "thumbnailUrl": "https://via.placeholder.com/150/f3472e"
         },
       ])
     })

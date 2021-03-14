@@ -1,12 +1,12 @@
 import { debounce } from 'lodash'
 import api from '../../utils/api'
+import { searchPhoto } from './utils'
+import Photo from './components/Photo'
 import { Lightbox } from 'react-modal-image'
 import { AlbumsContext } from './AlbumsContainer'
-import { searchPhoto } from './utils'
-import { useHistory, useParams } from 'react-router-dom'
+import { useHistory, useParams, Link } from 'react-router-dom'
 import { useEffect, useContext, useState, useCallback } from 'react'
-import { PageTitle, AlbumDetailContainer, SerachInput } from "./styles"
-import Photo from './components/Photo'
+import { PageTitle, AlbumPhotoList, SearchInput, Breadcrumb, BreadcrumbItem } from "./styles"
 
 function AlbumDetail() {
   const [selectedPhoto, setSelectedPhoto] = useState()
@@ -49,19 +49,23 @@ function AlbumDetail() {
 
   return (
     <>
-      <PageTitle>Album Detail</PageTitle>
-      <SerachInput type="search" value={searchText} onChange={s => setSearchText(s.target.value)} placeholder="Search..." />
-      <AlbumDetailContainer>
-        {photos && photos.length > 0 && photos.map((photo, index) => (
+      <Breadcrumb>
+        <BreadcrumbItem><Link to="/albums">Album list</Link></BreadcrumbItem>
+        <BreadcrumbItem>Album Detail</BreadcrumbItem>
+      </Breadcrumb>
+      <PageTitle data-testid="album-detail-page">Album Detail</PageTitle>
+      <SearchInput type="search" value={searchText} onChange={s => setSearchText(s.target.value)} placeholder="Search..." />
+      <AlbumPhotoList>
+        {photos && photos.length > 0 && photos.map(photo => (
           <Photo
-            key={index}
+            key={`photo-${photo.id}`}
             photo={photo}
             setSelectedPhoto={setSelectedPhoto}
             searchText={searchText}
           />
         ))}
         {!photos && photos.length === 0 && "loading..."}
-      </AlbumDetailContainer>
+      </AlbumPhotoList>
       {
         selectedPhoto && (
           <Lightbox

@@ -36,6 +36,39 @@ describe('AlbumsList', () => {
     expect(getAlbumsList).toHaveBeenCalled()
   });
 
+  it('should set some informations on album click', async () => {
+    // given
+    const promise = Promise.resolve(albums)
+    const getAlbumsList = jest.fn(() => promise)
+    const albumsList = albums
+    const setAlbumDetails = jest.fn()
+    const setSelectedAlbum = jest.fn()
+    const setAlbumsList = jest.fn()
+    const history = createMemoryHistory()
+
+    render(
+      <Router history={history}>
+        <AlbumsContext.Provider
+          value={{
+            getAlbumsList,
+            albumsList,
+            setAlbumsList,
+            setSelectedAlbum,
+            setAlbumDetails
+          }}
+        >
+          <AlbumsList />
+        </AlbumsContext.Provider>
+      </Router>
+    );
+    // when
+    fireEvent.click(screen.getByTestId(`album-${albums[0].id}`))
+    // then
+    expect(getAlbumsList).toHaveBeenCalled()
+    expect(setAlbumDetails).toHaveBeenCalledWith(null)
+    expect(setSelectedAlbum).toHaveBeenCalledWith(albums[0].id)
+  });
+
   it('should redirect to the album detail route', async () => {
     // given
     const promise = Promise.resolve(albums)
@@ -62,11 +95,9 @@ describe('AlbumsList', () => {
       </Router>
     );
     // when
-    fireEvent.click(screen.getByTestId('album-0'))
+    fireEvent.click(screen.getByTestId(`link-album-${albums[0].id}`))
     // then
     expect(getAlbumsList).toHaveBeenCalled()
-    expect(setAlbumDetails).toHaveBeenCalledWith(null)
-    expect(setSelectedAlbum).toHaveBeenCalledWith(albums[0].id)
     expect(history.location.pathname).toEqual(`/albums/${albums[0].id}`)
   });
 })

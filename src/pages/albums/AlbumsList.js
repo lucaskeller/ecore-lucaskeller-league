@@ -2,7 +2,7 @@
 import { useContext, useEffect } from 'react'
 
 import { AlbumsContext } from './AlbumsContainer'
-import { AlbumListContainer, PageTitle } from './styles'
+import { AlbumList, PageTitle, Breadcrumb, BreadcrumbItem } from './styles'
 import api from '../../utils/api'
 import Album from './components/Album'
 
@@ -28,17 +28,20 @@ function AlbumsList() {
 
   return (
     <>
+      <Breadcrumb>
+        <BreadcrumbItem>Album list</BreadcrumbItem>
+      </Breadcrumb>
       <PageTitle>Albums list</PageTitle>
       {albumsList && albumsList.length > 0 && (
-        <AlbumListContainer>
+        <AlbumList>
           {albumsList.map((album, index) => (
             <Album
-              key={`album-${index}`}
+              key={`album-${album.id}`}
               album={album}
-              testid={`album-${index}`}
+              testid={`album-${album.id}`}
             />
           ))}
-        </AlbumListContainer>
+        </AlbumList>
       )}
       {!albumsList && albumsList.length === 0 && (
         <>loading...</>

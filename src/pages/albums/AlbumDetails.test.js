@@ -27,7 +27,7 @@ describe('AlbumDetails', () => {
         </AlbumsContext.Provider>
       </MemoryRouter>
     );
-    const titleElement = screen.getByText(/Album Detail/i)
+    const titleElement = screen.getByTestId('album-detail-page')
     expect(titleElement).toBeInTheDocument()
     await act(() => promise)
   });
